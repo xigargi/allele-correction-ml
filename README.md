@@ -4,40 +4,47 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
-A two-stage machine learning pipeline to detect and correct erroneous allele values from DNA sequencer output, applied to canine genetic identification.
-
-This project was developed as part of a Master's Thesis (TFM), addressing the reliability of genetic identification data by automatically detecting and correcting numerical errors introduced during the sequencing process.
+**A two-stage machine learning system that detects and corrects erroneous allele values in DNA sequencer output, improving the reliability of canine genetic identification data.**
 
 ---
 
 ## Table of Contents
 
-- [Problem Statement](#problem-statement)
+- [Overview](#overview)
+- [Key Results](#key-results)
 - [Workflow](#workflow)
-- [Objectives](#objectives)
+- [Approach](#approach)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Results](#results)
 - [Tech Stack](#tech-stack)
 - [License](#license)
 
 ---
 
-## Problem Statement
+## Overview
 
-DNA sequencers used for canine genetic identification can return erroneous numerical values for certain alleles due to technical artifacts introduced during the sequencing process. These errors can compromise the reliability of the resulting genetic profile and the downstream database used for identification purposes.
+DNA sequencers used for canine genetic identification occasionally return erroneous numerical values for specific alleles due to technical artifacts in the sequencing process. Left uncorrected, these errors propagate into the genotype database and compromise the reliability of identification results.
 
-This project implements a **two-stage machine learning pipeline** that:
+This project frames the problem as a **two-stage supervised learning pipeline**:
 
-1. **Detects** which allele values are likely to be erroneous — *classification model*
-2. **Corrects** the detected erroneous values to their expected value — *regression model*
+1. **Detection** — a classification model flags allele values likely to be erroneous
+2. **Correction** — a regression model estimates the correct value for flagged alleles
+
+The result is an automated, data-driven alternative to manual review of sequencer output, designed to be plugged directly into an existing genotyping workflow.
+
+## Key Results
+
+> To be completed once final evaluation is run.
+
+| Model | Task | Metric | Score |
+|---|---|---|---|
+| Classifier | Error detection | F1 / Precision / Recall | — |
+| Regressor | Value correction | MAE / RMSE | — |
 
 ## Workflow
 
 ![Pipeline workflow](reports/figures/pipeline_workflow.svg)
-
-*Proposed workflow to achieve the project's objectives — from raw sequencer output to a corrected, genotyped database.*
 
 | Stage | Description |
 |---|---|
@@ -48,17 +55,11 @@ This project implements a **two-stage machine learning pipeline** that:
 | **Genotyping** | Genotype assignment based on corrected data |
 | **Database** | Final storage of validated genetic profiles |
 
-## Objectives
+## Approach
 
-The main objective of this project is to develop a machine learning model capable of detecting and correcting erroneous numerical values returned by the sequencer used in the context of canine genetic identification.
+The pipeline was built by first profiling the sequencer output to understand the structure and root causes of the errors, which informed the feature engineering strategy used in both modeling stages.
 
-To achieve this, the following tasks were carried out:
-
-- **Exploratory Data Analysis (EDA)** to determine the most suitable preprocessing strategies
-- **Feature extraction and selection** of the most determinant characteristics
-- **Training and comparison of multiple ML techniques** for detecting incorrect data (detection model)
-- **Training and comparison of multiple ML techniques** for correcting the data (correction model)
-- **Exploration of hyperparameter tuning methods** for both models
+Several classification algorithms were benchmarked for the detection stage, and several regression algorithms for the correction stage, selecting the best-performing model for each task based on cross-validated performance. Model configurations were tuned to squeeze out additional performance once the strongest candidates were identified.
 
 ## Project Structure
 
@@ -71,7 +72,7 @@ allele-correction-ml/
 │   ├── processed/             <- Final data used for modeling
 │   └── external/              <- Data from third-party sources
 │
-├── notebooks/                 <- Jupyter notebooks for exploration and prototyping
+├── notebooks/                 <- Exploration and prototyping notebooks
 │
 ├── allele_correction_ml/      <- Source code
 │   ├── config.py                 <- Paths and configuration variables
@@ -95,30 +96,18 @@ allele-correction-ml/
 
 ## Installation
 
-Clone the repository:
-
 ```bash
 git clone https://github.com/xigargi/allele-correction-ml.git
 cd allele-correction-ml
-```
 
-Create and activate a virtual environment:
-
-```bash
 python -m venv venv
 venv\Scripts\activate      # Windows
 source venv/bin/activate   # macOS/Linux
-```
 
-Install dependencies:
-
-```bash
 pip install -r requirements.txt
 ```
 
 ## Usage
-
-> This section will be updated as the training and inference scripts are finalized.
 
 ```bash
 # Train the classifier (detection model)
@@ -131,14 +120,10 @@ python -m allele_correction_ml.modeling.train --model regressor
 python -m allele_correction_ml.modeling.predict
 ```
 
-## Results
-
-> To be completed with final metrics and comparison tables between the different models evaluated for the detection and correction stages.
-
 ## Tech Stack
 
 - **Python 3.11**
-- **scikit-learn** — baseline classification and regression models
+- **scikit-learn** — classification and regression models
 - **pandas / numpy** — data manipulation
 - **matplotlib / seaborn** — visualization
 - **pytest** — testing
@@ -147,7 +132,3 @@ python -m allele_correction_ml.modeling.predict
 ## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-*Developed as part of a Master's Thesis in Bioinformatics, applied to canine genetic identification.*
