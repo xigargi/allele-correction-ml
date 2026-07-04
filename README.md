@@ -35,7 +35,7 @@ This project implements a **two-stage machine learning pipeline** that:
 
 ## Workflow
 
-![Pipeline workflow](reports/figures/pipeline_workflow_en.svg)
+![Pipeline workflow](reports/figures/pipeline_workflow.svg)
 
 *Proposed workflow to achieve the project's objectives — from raw sequencer output to a corrected, genotyped database.*
 
