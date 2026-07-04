@@ -1,0 +1,53 @@
+<svg viewBox="0 0 1000 160" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <!-- Box 1: Sequencer -->
+  <rect x="10" y="40" width="140" height="60" rx="12" fill="#E8722C"/>
+  <text x="80" y="76" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Sequencer</text>
+
+  <!-- Arrow 1 -->
+  <line x1="150" y1="70" x2="180" y2="70" stroke="#E8722C" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: Change Detector -->
+  <rect x="184" y="40" width="140" height="60" rx="12" fill="#1E5B2E"/>
+  <text x="254" y="68" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Change</text>
+  <text x="254" y="86" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Detector</text>
+
+  <!-- Arrow 2 -->
+  <line x1="324" y1="70" x2="354" y2="70" stroke="#1E5B2E" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: Corrector -->
+  <rect x="358" y="40" width="140" height="60" rx="12" fill="#1B9FD8"/>
+  <text x="428" y="76" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Corrector</text>
+
+  <!-- Arrow 3 -->
+  <line x1="498" y1="70" x2="528" y2="70" stroke="#1B9FD8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Corrected Samples -->
+  <rect x="532" y="40" width="140" height="60" rx="12" fill="#9B2FA6"/>
+  <text x="602" y="68" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Corrected</text>
+  <text x="602" y="86" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Samples</text>
+
+  <!-- Arrow 4 -->
+  <line x1="672" y1="70" x2="702" y2="70" stroke="#9B2FA6" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Box 5: Genotyping -->
+  <rect x="706" y="40" width="140" height="60" rx="12" fill="#5FAD3E"/>
+  <text x="776" y="76" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Genotyping</text>
+
+  <!-- Arrow 5 -->
+  <line x1="846" y1="70" x2="876" y2="70" stroke="#5FAD3E" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Box 6: Database -->
+  <rect x="880" y="40" width="110" height="60" rx="12" fill="#E8722C"/>
+  <text x="935" y="68" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Database</text>
+
+  <!-- Caption -->
+  <text x="500" y="140" text-anchor="middle" fill="#333333" font-size="14" font-style="italic">
+    Figure: Proposed workflow to achieve the project's objectives.
+  </text>
+</svg>
