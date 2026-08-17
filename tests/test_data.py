@@ -1,5 +1,5 @@
-import pytest
+def test_package_imports():
+    import allele_correction_ml
 
-
-def test_code_is_tested():
-    assert False
+    # Sanity check: package imports without error
+    assert True

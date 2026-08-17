@@ -17,6 +17,29 @@ classifiers = [
 ]
 requires-python = "~=3.11.0"
 
+dependencies = [
+  "loguru",
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "tqdm",
+  "typer",
+  "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ipython",
+  "jupyterlab",
+  "notebook",
+  "pytest",
+  "ruff",
+  "mkdocs",
+  "pre-commit",
+  "isort",
+]
+
 
 [tool.ruff]
 line-length = 99

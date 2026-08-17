@@ -1,0 +1,9 @@
+--requirement requirements.txt
+ipython
+jupyterlab
+notebook
+pytest
+ruff
+mkdocs
+pre-commit
+isort
